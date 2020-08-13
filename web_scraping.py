@@ -1,10 +1,8 @@
 # test python for web scraping ดึงข้อมูลผู้ติดเชื้อ Covid - 19 ในไทย
-
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd 
 import time
-
 
 # line notify covid - 19 
 # line notify covid - 19  ตัวหน้าเว็บจะมี API ให้ไม่ต้องดึงจากเว็บตรงๆ โดยดึงผ่าน API รูปแบบ json 
@@ -68,28 +66,3 @@ gold_price_check()
 # concept ถัดไปส่ง covid - 19 เข้า line
 
 
-'''
-# scraping people covid - 19 in Thailand
-def covid_19_scraping():
-    url = 'https://covid19.th-stat.com/api/open/today' # api for covid-19
-    response = requests.request('GET', url)
-    data = response.json()
-
-    df = pd.DataFrame.from_dict(data, orient = 'index')
-    # print all except last 3 data
-    print(' Covid - 19 In Thailand')
-    print(df[:-3])
-
-covid_19_scraping() # call function
-
-
-#สร้าง Line Notify ผ่าน script
-
-URL = 'https://notify-api.line.me/api/notify'
-Token ='ic23VahorgzkTy3iP2xZxfuZNsXFgYeiv2XGyJ36N6v'
-headers = {'content-type':'application/x-www-form-urlencoded','Authorization':'Bearer '+Token}
-Message = 'Line Notify with Python, Hello Nattapong'
-r = requests.post(URL, headers=headers , data = {'message':Message})
-print(r.text)
-
-'''

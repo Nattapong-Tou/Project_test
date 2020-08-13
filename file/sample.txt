@@ -1,0 +1,11 @@
+รายชื่อสัตว์ 
+เข้ม 1 
+CAT 
+DOG 
+รายชื่อสัตว์ 
+เข้ม 2 
+CAT 
+DOG 
+2020-08-07 22:07:59 -- Training python
+2020-08-07 22:08:23 -- Study read / write text file
+2020-08-07 22:08:39 -- test write text file

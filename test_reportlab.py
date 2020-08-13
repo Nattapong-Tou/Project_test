@@ -1,0 +1,1 @@
+from reportlab.pdfgen import canvas# load thai fontfrom reportlab.pdfbase.ttfonts import TTFontfrom reportlab.pdfbase import pdfmetrics# pdfmetrics.registerFont(TTFont('F1', 'TH Saraban New'))def hello(c):    # c.setFont('F1', 30)    c.drawString(100, 100, 'Hello Nattapong')c = canvas.Canvas('Hello.pdf')hello(c)c.showPage()c.save()

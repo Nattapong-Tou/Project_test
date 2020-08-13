@@ -1,9 +1,10 @@
 # ทดสอบ Auto run script
-import datetime
-from threading import Timer
-x = datetime.datetime.today()
-print(x)
+import schedule
+def test_schedule():
+    print('Hello Nattapong')
 
+schedule.every(5).seconds.do(test_schedule)
+schedule.run_pending()
 
 
 '''
@@ -24,4 +25,11 @@ def hello_world():
 
 t = Timer(secs, hello_world)
 t.start()
+
+
+import datetime
+from threading import Timer
+x = datetime.datetime.today()
+print(x)
+
 '''

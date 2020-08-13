@@ -1,47 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="496573e3-3d3b-4e92-980d-0b24e81483e3" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="979d66fd-11bf-4e5e-8d0a-c43707f3731f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/DB_Test.db" beforeDir="false" afterPath="$PROJECT_DIR$/Database/DB_Test.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic_python.py" beforeDir="false" afterPath="$PROJECT_DIR$/basic_python.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/test_invoice.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/timer.py" beforeDir="false" afterPath="$PROJECT_DIR$/timer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/.Python" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/activate" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/activate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/activate.csh" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/activate.csh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/activate.fish" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/activate.fish" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/activate.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/activate.ps1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/activate.xsh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/activate_this.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/easy_install" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/easy_install" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/easy_install-3.7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/pip" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/pip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/pip3" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/pip3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/pip3.7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/python" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/python" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/python-config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/python3" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/python3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/python3.7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/pytube" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/bin/wheel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/include/python3.7m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pyvenv.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pyvenv.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_scraping.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_scraping.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="Test" />
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints>
+      <file url="file://$PROJECT_DIR$/basic_python.py" />
+    </disable_hints>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
+  <component name="Git.Settings">
+    <option name="PREVIEW_PUSH_ON_COMMIT_AND_PUSH" value="false" />
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1RRmvDEftH8Vv8827YW7ENgjC1C" />
+  <component name="ProjectId" id="1fm0wKwgOqv62zLhUjxYPMHWE8w" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ToolWindowTODO.ShowToolbar" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-    </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Python.If-Else">
-    <configuration name="If-Else" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager">
+    <configuration name="train_python" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -53,7 +76,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/If-Else.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_python.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -62,49 +85,55 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="TestMath" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Test" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestMath" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Python.If-Else" />
-      <item itemvalue="Python.TestMath" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.If-Else" />
-        <item itemvalue="Python.TestMath" />
+        <item itemvalue="Python.train_python" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="496573e3-3d3b-4e92-980d-0b24e81483e3" name="Default Changelist" comment="" />
-      <created>1569638510705</created>
+      <changelist id="979d66fd-11bf-4e5e-8d0a-c43707f3731f" name="Default Changelist" comment="" />
+      <created>1596808198638</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1569638510705</updated>
+      <updated>1596808198638</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LIMIT_HISTORY" value="false" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="970" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="354" y="123" key="#Inspections" timestamp="1596808740755">
+      <screen x="0" y="23" width="1440" height="830" />
+    </state>
+    <state x="354" y="123" key="#Inspections/0.23.1440.830@0.23.1440.830" timestamp="1596808740755" />
+    <state x="297" y="23" key="CommitChangelistDialog2" timestamp="1596809538099">
+      <screen x="0" y="23" width="1440" height="830" />
+    </state>
+    <state x="297" y="23" key="CommitChangelistDialog2/0.23.1440.830@0.23.1440.830" timestamp="1596809538099" />
+    <state width="1419" height="230" key="GridCell.Tab.0.bottom" timestamp="1596815014549">
+      <screen x="0" y="23" width="1440" height="830" />
+    </state>
+    <state width="1419" height="230" key="GridCell.Tab.0.bottom/0.23.1440.830@0.23.1440.830" timestamp="1596815014549" />
+    <state width="1419" height="230" key="GridCell.Tab.0.center" timestamp="1596815014548">
+      <screen x="0" y="23" width="1440" height="830" />
+    </state>
+    <state width="1419" height="230" key="GridCell.Tab.0.center/0.23.1440.830@0.23.1440.830" timestamp="1596815014548" />
+    <state width="1419" height="230" key="GridCell.Tab.0.left" timestamp="1596815014548">
+      <screen x="0" y="23" width="1440" height="830" />
+    </state>
+    <state width="1419" height="230" key="GridCell.Tab.0.left/0.23.1440.830@0.23.1440.830" timestamp="1596815014548" />
+    <state width="1419" height="230" key="GridCell.Tab.0.right" timestamp="1596815014548">
+      <screen x="0" y="23" width="1440" height="830" />
+    </state>
+    <state width="1419" height="230" key="GridCell.Tab.0.right/0.23.1440.830@0.23.1440.830" timestamp="1596815014548" />
+    <state x="221" y="77" key="SettingsEditor" timestamp="1596814950858">
+      <screen x="0" y="23" width="1440" height="830" />
+    </state>
+    <state x="221" y="77" key="SettingsEditor/0.23.1440.830@0.23.1440.830" timestamp="1596814950858" />
   </component>
 </project>
