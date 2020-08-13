@@ -525,9 +525,9 @@ gold_price_check()
 # ===== 8/08/2020 =====
 # Intro Tkinter[/]
 # Tkinter create main windows [/]
-# การจัดโครงสร้าง pack(), place(), grid() [*]
-# Label / Entry / Button [*]
-
+# การจัดโครงสร้าง pack(), place(), grid() [/]
+# Label / Entry / Button [/]
+'''
 from tkinter import *
 from tkinter import Tk
 from tkinter import ttk
@@ -551,7 +551,9 @@ btn_login = ttk.Button(text='LOGIN').place(x=180, y=170)
 btn_clear = ttk.Button(text='CLEAR').place(x=280, y=170)
 
 windows.mainloop()
-
+'''
+# ===== 13/08/2020 =====
+# สอน Label Frame[*]
 
 
 
