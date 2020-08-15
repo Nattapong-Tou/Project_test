@@ -99,7 +99,7 @@ spin1 = Spinbox(from_=0,to=10).pack()
 listbox1 = Listbox()
 listbox1.insert(1,"Python")
 listbox1.insert(2,"Nattapong")
-listbox1.insert(3,"Niricha")
+listbox1.insert(3,"Niracha")
 listbox1.pack()
 
 # slidebar

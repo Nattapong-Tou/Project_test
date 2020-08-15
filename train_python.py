@@ -486,7 +486,7 @@ upgrade venv >> pip3 install -r requiments.txt --updrade
 '''
 
 # ==== Home work [สั่ง 9/08/2020] ====
-# เขียน script ดึงราคาทองคำประจำวันแล้วให้ส่งแจ้งเตือนเข้า line notify [ส่ง 13/08/2020][*]
+# เขียน script ดึงราคาทองคำประจำวันแล้วให้ส่งแจ้งเตือนเข้า line notify [ส่ง 13/08/2020][/]
 # web_url = 'https://www.goldtraders.or.th/default.aspx'
 '''
 # check ราคาทองแล้วส่งเข้า line notify
@@ -552,8 +552,11 @@ btn_clear = ttk.Button(text='CLEAR').place(x=280, y=170)
 
 windows.mainloop()
 '''
-# ===== 13/08/2020 =====
+# ===== 15/08/2020 =====
+# สอนการใช้งาน GitHub[*]
 # สอน Label Frame[*]
+
+
 
 
 
