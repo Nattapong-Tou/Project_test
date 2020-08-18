@@ -4,7 +4,6 @@
 # = - * / == >= <= != : Operator in python
 # (10+10)+(100+100)
 
-
 '''
 23/7/2020
 Example  ทบทวน if - elif - else
@@ -552,9 +551,6 @@ btn_clear = ttk.Button(text='CLEAR').place(x=280, y=170)
 
 windows.mainloop()
 '''
-# ===== 15/08/2020 =====
-# สอนการใช้งาน GitHub[*]
-# สอน Label Frame[*]
 
 
 

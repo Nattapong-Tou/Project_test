@@ -1,7 +1,6 @@
 import sqlite3
 # connect database sqllit3 from in project
 
-
 con = sqlite3.connect('Database/DB_Test.db')
 con.cursor()
 print('connected')  # connect complese

@@ -45,11 +45,6 @@ class product:
 
 
 
-
-
-
-
-
 if __name__ == '__main__':
     gui = Tk()
     application = product(gui)
