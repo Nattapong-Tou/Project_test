@@ -292,17 +292,12 @@ show_data()
 windows.mainloop()
 
 '''
-import sqlite3
 
-# connect database
-con = sqlite3.connect('database/DB_Train.db')
-con.cursor()
-cur = con.cursor()
-# showdata
-sql = 'SELECT * FROM Tb_Name'
-cur.execute(sql)
-rows = cur.fetchall()
-print(rows)
+
+
+
+
+
 
 
 

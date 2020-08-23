@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import pandas as pd 
 import time
 
+
 # line notify covid - 19 
 # line notify covid - 19  ตัวหน้าเว็บจะมี API ให้ไม่ต้องดึงจากเว็บตรงๆ โดยดึงผ่าน API รูปแบบ json 
 covid_api = 'https://covid19.th-stat.com/api/open/today' # api for covid-19

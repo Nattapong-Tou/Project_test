@@ -341,11 +341,6 @@ git commit -m '...key word...'
 git push -u origin master
 '''
 
-# Database SQLite3 [/]
-# connect database, show data from database[*]
-# เขียน tkinter เชื่อมต่อกับฐานข้อมูล (ตัวอย่างเพิ่ม ลบ แก้ไข ข้อมูลสินค้า) [x]
-
-
 
 
 
