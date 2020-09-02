@@ -30,11 +30,15 @@ def calculate(): # use for button calculate
     # คำนวนจำนวนหน่วยที่ใช้งาน
     cal_old_unit = old_unit.get()
     cal_now_unit = now_unit.get()
+
     
     if cal_old_unit =='':
         messagebox.showwarning(title='Alert', message='Old_Unit is emtry.')
     elif cal_now_unit =='':
         messagebox.showwarning(title='Alert', message='Now Unit is emtry.')
+    # ตรวจสอบว่าค่าที่รับเข้ามาเป็นตัวเลขหรือไม่
+    elif cal_now_unit.isnumeric() == False:
+        messagebox.showwarning(title='Alert', message='Now Unit is not numeric.')
     elif cal_old_unit > cal_now_unit:
         messagebox.showwarning(title='Alert.', message='Old_Unit is more Now_Unit please check data.')
     else:

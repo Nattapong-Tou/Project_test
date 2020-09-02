@@ -37,11 +37,29 @@ print('ผลรวมทั้งหมดใน list = ', sum(e)) # ผลร�
 print('ค่ามากสุดใน list = ', max(e)) # ค่ามากสุดใน list
 print('ค่าน้อยสุดใน list = ', min(e))
 '''
+# 29 / 08 / 2020
+import pandas as pd
 
+#การกำหนดข้อมูลให้กับ Series
+data1 = [70, 85, 50, 75] # >> list
+sr1 = pd.Series(data=data1)
 
+data2 = (10, 20, 30, 40) # >> tuple
+sr2 = pd.Series(data2)
 
+sr3 = pd.Series([20, 40, 60, 80])
 
+print(sr1)
 
+# กำหนด index ลงไปด้วย
+index = ['A', 'B', 'C', 'D']
+sr4 = pd.Series(data1, index=index)
+print(sr4)
+
+# values and index
+data3 = {'T-Shirt': 499, 'shoe': 2000, 'Bag': 40000}
+sr5 = pd.Series(data3)
+print(sr5.index, sr5.values, sep='\n\n')
 
 
 
