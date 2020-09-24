@@ -8,11 +8,11 @@ Tap 2
 
 
 '''
-
 import sqlite3
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
+
 
 # connect database
 con = sqlite3.connect('database/DB_Train.db')
@@ -26,7 +26,8 @@ def show_data():
     for element in record:
         tree.delete(element)
 
-    sql_select = 'SELECT * FROM tb_product'
+    sql_select = 'SELECT * '\
+        'FROM tb_product'
     rows = con.execute(sql_select)
     cpt = 0
     for rows_show in rows:
@@ -138,14 +139,61 @@ def delete_data():
             show_data()
             clear_data()
 
+# Function Tap Sale Data
+def show_data_sale():
+    record = tree_tap2.get_children()
+    for element in record:
+        tree_tap2.delete(element)
+
+    sql_select = 'SELECT tb_sale.sale_id,tb_order.order_id,tb_order.order_date,tb_product.id,tb_product.product_name,'\
+        'tb_sale.total_amount,tb_sale.price,tb_sale.total_price,tb_sale.pay_in,tb_sale.pay_out,tb_sale.cus_id'\
+        ' FROM tb_order,tb_product,tb_sale'\
+        ' WHERE tb_order.order_id = tb_sale.order_id'\
+        ' AND tb_sale.product_id = tb_product.id'
+
+    rows = con.execute(sql_select)
+    cpt = 0
+    for rows_show in rows:
+        tree_tap2.insert('','end', text=str(cpt), values=(rows_show[0], rows_show[1],
+                    rows_show[2], rows_show[3], rows_show[4], rows_show[5], rows_show[6],
+                    rows_show[7], rows_show[8], rows_show[9], rows_show[10]))
+        cpt += 1
+    
+
+def clear_data_sale():
+    str_sale_id.set('')
+    str_product_id.set('')
+    str_order_id.set('')
+    str_cus_id.set('')
+    str_amount_sale.set('')
+    str_sale_price.set('')
+    str_sale_total_price.set('')
+    str_sale_pay_in.set('')
+    str_sale_pay_out.set('')
+    str_sale_date.set('')
+
+def select_data_sale(event):
+    item_sale = tree_tap2.selection()
+    for i in item_sale:
+        str_sale_id.set(tree_tap2.item(i, "values")[0])
+        str_order_id.set(tree_tap2.item(i, "values")[1])
+        str_sale_date.set(tree_tap2.item(i, "values")[2])
+        str_product_id.set(tree_tap2.item(i, "values")[3])
+        str_amount_sale.set(tree_tap2.item(i, "values")[5])
+        str_sale_price.set(tree_tap2.item(i, "values")[6])
+        str_sale_total_price.set(tree_tap2.item(i, "values")[7])
+        str_sale_pay_in.set(tree_tap2.item(i, "values")[8])
+        str_sale_pay_out.set(tree_tap2.item(i, "values")[9])
+        str_cus_id.set(tree_tap2.item(i, "values")[10])
+
 # windows form area
 windows = Tk()
-windows.geometry('700x500+700+150')
+windows.geometry('1000x500+400+50')
 windows.resizable(0,0)
 windows.title('Program Product')
 
 # create Notebook
-notebook = ttk.Notebook(windows, width=660, height=460)
+notebook = ttk.Notebook(windows, width=960, height=460)
 notebook.pack(padx=5, pady=5)
 
 # create Frame
@@ -154,7 +202,7 @@ fm_tap2 = Frame(notebook)
 
 # add tap
 notebook.add(fm_tap1, text='Product Data')
-notebook.add(fm_tap2, text='Sale Data')
+notebook.add(fm_tap2, text='Sale')
 
 # create widget in tap
 # tap Product Data
@@ -216,15 +264,128 @@ tree.column('Amount', width=110)
 tree.place(height=200, x=15, y=150)
 tree.bind('<ButtonRelease>', select_data)
 
-# tap Product Data
+# tap sale
 str_sale_id = StringVar()
+str_product_id = StringVar()
+str_order_id = StringVar()
+str_cus_id = StringVar()
+str_amount_sale = StringVar()
+str_sale_price = StringVar()
+str_sale_total_price = StringVar()
+str_sale_pay_in = StringVar()
+str_sale_pay_out = StringVar()
+str_sale_date = StringVar()
 
-lbl_id_tap2 = Label(fm_tap2, text='ID :')
+lbl_id_tap2 = Label(fm_tap2, text='Sale ID :')
 lbl_id_tap2.grid(row=0, column=0, padx=5, pady=10)
+txt_sale_id = ttk.Entry(fm_tap2, textvariable=str_sale_id, width=10)
+txt_sale_id.grid(row=0, column=1)
 
+lbl_productid_tap2 = Label(fm_tap2, text='Product ID :')
+lbl_productid_tap2.grid(row=0, column=2, padx=5, pady=10)
+txt_product_id = ttk.Entry(fm_tap2, textvariable=str_product_id, width=10)
+txt_product_id.grid(row=0, column=3)
+
+lbl_order_id = Label(fm_tap2, text='Order ID :')
+lbl_order_id.grid(row=0, column=4, padx=5, pady=10)
+txt_order_id = ttk.Entry(fm_tap2, textvariable=str_order_id, width=10)
+txt_order_id.grid(row=0, column=5)
+
+lbl_cus_id = Label(fm_tap2, text='Cus ID :')
+lbl_cus_id.grid(row=2, column=4, padx=5, pady=10)
+txt_cus_id = ttk.Entry(fm_tap2, textvariable=str_cus_id, width=10)
+txt_cus_id.grid(row=2, column=5)
+
+lbl_amount_sale = Label(fm_tap2, text='Amount :')
+lbl_amount_sale.grid(row=1, column=0)
+txt_amount_sale = ttk.Entry(fm_tap2, textvariable=str_amount_sale, width=10)
+txt_amount_sale.grid(row=1, column=1)
+
+lbl_sale_price = Label(fm_tap2, text='Price :')
+lbl_sale_price.grid(row=1, column=2)
+txt_sale_price = ttk.Entry(fm_tap2, textvariable=str_sale_price, width=10)
+txt_sale_price.grid(row=1, column=3)
+
+lbl_sale_total_price = Label(fm_tap2, text='Total Price :')
+lbl_sale_total_price.grid(row=1, column=4)
+txt_sale_total_price = ttk.Entry(fm_tap2, textvariable=str_sale_total_price, width=10)
+txt_sale_total_price.grid(row=1, column=5)
+
+lbl_pay_in = Label(fm_tap2, text='Pay In :')
+lbl_pay_in.grid(row=2, column=0, padx=5, pady=10)
+txt_pay_in = ttk.Entry(fm_tap2, textvariable=str_sale_pay_in, width=10)
+txt_pay_in.grid(row=2, column=1)
+
+lbl_pay_out = Label(fm_tap2, text='Pay Out :')
+lbl_pay_out.grid(row=2, column=2, padx=5, pady=10)
+txt_pay_out = ttk.Entry(fm_tap2, textvariable=str_sale_pay_out, width=10)
+txt_pay_out.grid(row=2, column=3)
+
+lbl_sale_date = Label(fm_tap2, text='Date :')
+lbl_sale_date.grid(row=3, column=0)
+txt_sale_date = ttk.Entry(fm_tap2, textvariable=str_sale_date, width=10)
+txt_sale_date.grid(row=3, column=1)
+
+# image for button
+img_sale_insert = PhotoImage(file="image/insert16.png")
+img_sale_update = PhotoImage(file="image/update16.png")
+img_sale_delete = PhotoImage(file="image/delete16.png")
+img_sale_calcu = PhotoImage(file="image/calcu16.png")
+img_sale_refresh = PhotoImage(file="image/refresh16.png")
+
+btn_insert_sale = ttk.Button(fm_tap2, text='Insert', image=img_sale_insert, compound="left" \
+    ,width=10, command='')
+btn_insert_sale.grid(row=0, column=8, padx=40)
+#btn_insert['bg'] = '#E2F8BE'
+btn_update_sale = ttk.Button(fm_tap2, text='Update', image=img_sale_update, compound="left" \
+    ,width=10, command='')
+btn_update_sale.grid(row=1, column=8)
+
+btn_delete_sale = ttk.Button(fm_tap2, text='Delete', image=img_sale_delete, compound="left" \
+    ,width=10, command='')
+btn_delete_sale.grid(row=2, column=8)
+
+btn_cal_sale = ttk.Button(fm_tap2, text='Calculate', image=img_sale_calcu, compound="left" \
+    ,width=10, command='')
+btn_cal_sale.grid(row=3, column=8)
+
+btn_clear_sale = ttk.Button(fm_tap2, text='Clear', image=img_sale_refresh, compound="left" \
+    ,width=10, command=clear_data_sale)
+btn_clear_sale.grid(row=4, column=8, pady=10)
+
+tree_tap2 = ttk.Treeview(fm_tap2)
+tree_tap2['show'] = 'headings'
+tree_tap2['column'] = ('sale_id', 'order_id', 'Date', 'p_id', 'p_name', 'Amount', 'Price', 't_ptice', 'pay_in', 'pay_out', 'cus_id')
+tree_tap2.heading('sale_id', text='sale_id')
+tree_tap2.heading('order_id', text='order_id')
+tree_tap2.heading('Date', text='Date')
+tree_tap2.heading('p_id', text='p_id')
+tree_tap2.heading('p_name', text='p_name')
+tree_tap2.heading('Amount', text='Amount')
+tree_tap2.heading('Price', text='Price')
+tree_tap2.heading('t_ptice', text='t_ptice')
+tree_tap2.heading('pay_in', text='pay_in')
+tree_tap2.heading('pay_out', text='pay_out')
+tree_tap2.heading('cus_id', text='cus_id')
+tree_tap2.column('sale_id', width=50)
+tree_tap2.column('order_id', width=50)
+tree_tap2.column('Date', width=100)
+tree_tap2.column('p_id', width=50)
+tree_tap2.column('p_name', width=150)
+tree_tap2.column('Amount', width=70)
+tree_tap2.column('Price', width=80)
+tree_tap2.column('t_ptice', width=80)
+tree_tap2.column('pay_in', width=80)
+tree_tap2.column('pay_out', width=80)
+tree_tap2.column('cus_id', width=80)
+tree_tap2.place(height=235, x=15, y=180)
+tree_tap2.bind('<ButtonRelease>', select_data_sale)
 
 # call function tap Product Data
 show_data()
+# call function tap Sale Data
+show_data_sale()
+
 
 windows.mainloop()
 

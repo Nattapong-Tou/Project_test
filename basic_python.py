@@ -293,6 +293,9 @@ windows.mainloop()
 
 '''
 
+import sys
+print(sys.version)
+
 
 
 

@@ -11,7 +11,7 @@ import sys
 
 print(sys.version)
 # ---------- connect Database SQLite3 -----------
-con = sqlite3.connect("Database/DB_Test.db")
+con = sqlite3.connect('Database/DB_Test.db')
 cur = con.cursor()
 #-------------- Function -------------------
 def clear_data(): # use for button clear 
@@ -189,10 +189,13 @@ def select_treeview(event): # create selection in treeview to show in textbok fo
 
 def report_summary(): # funcrion for show dataframe and plot grap summary data.
     #messagebox.showinfo(title='Alert', message='Waite for coding.')
-    query_sql = pandas.read_sql_query('SELECT Date_Pay, Total_Price FROM Tb_Electric', con)
+    query_sql = pandas.read_sql_query("SELECT Date_Pay,Total_Price FROM Tb_Electric", con)
     df = pandas.DataFrame(query_sql, columns=['Date_Pay', 'Total_Price'])
-    df.plot(figsize=(10,6), marker='o',markersize=3, x='Date_Pay', y='Total_Price',color='red', grid=True)
-    plt.title("Eletric And Water Price Per Mount")
+    #print(df)
+    plt.style.use('seaborn') # กำหนด stype
+    df.plot(marker='o',markersize=3, x='Date_Pay', y='Total_Price',color='red')
+    plt.title("Eletric And Water Price Per Mount") # กำหนด title ให้กราฟ
+    plt.ylabel('Price') # กำหนด title ให้จำนวนเงินแกน y
     plt.xticks(rotation='90') # กำหนดแนว Label แกน X ของกราฟ
     plt.show()
     # Complese Function ------------
