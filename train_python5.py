@@ -159,6 +159,10 @@ def show_data_sale():
                     rows_show[7], rows_show[8], rows_show[9], rows_show[10]))
         cpt += 1
     
+    # call function when start up
+    set_max_id_order()
+    set_max_id_sale()
+
 
 def clear_data_sale():
     str_sale_id.set('')
@@ -185,6 +189,66 @@ def select_data_sale(event):
         str_sale_pay_in.set(tree_tap2.item(i, "values")[8])
         str_sale_pay_out.set(tree_tap2.item(i, "values")[9])
         str_cus_id.set(tree_tap2.item(i, "values")[10])
+
+
+def insert_data_sale():
+    sale_id = str_sale_id.get()
+    priduct_id = str_product_id.get()
+    order_id = str_order_id.get()
+    cus_id = str_cus_id.get()
+    amount_sale = str_amount_sale.get()
+    sale_price = str_sale_price.get()
+    sale_total_price = str_sale_total_price.get()
+    sale_pay_in = str_sale_pay_in.get()
+    sale_pay_out = str_sale_pay_out.get()
+    sale_date = str_sale_date.get()
+
+    if sale_id == '':
+        messagebox.showwarning(title='Warning', message='ID is missing. !!!')
+    
+    else:
+        insert = messagebox.askyesno(title='Comfirm insert data.', message='Are you want to insert data ?')
+        if insert > 0:
+            # insert to tb_sale
+            sql_insert = 'INSERT INTO tb_sale VALUES(?,?,?,?,?,?,?,?,?);'
+            data_insert = [sale_id, priduct_id, order_id, amount_sale, sale_total_price, \
+                sale_pay_in, sale_pay_out, sale_price, cus_id]
+            con.execute(sql_insert, data_insert)
+            con.commit()
+
+            
+            # insert to tb_order
+            sql_insert_order = 'INSERT INTO tb_order VALUES(?,?);'
+            data_insert_order = [order_id, sale_date]
+            con.execute(sql_insert_order, data_insert_order)
+            con.commit()
+            
+            # update amount in tb_product
+            sql_update_amount = 'UPDATE tb_product SET amount = amount-? WHERE id=?;'
+            data_update_amount = [amount_sale, priduct_id]
+            con.execute(sql_update_amount, data_update_amount)
+            con.commit()
+
+            # call function
+            show_data_sale()
+            clear_data_sale()
+
+
+def set_max_id_sale():
+    sql = 'SELECT MAX(sale_id) FROM tb_sale'
+    cur.execute(sql)
+    rows_max = cur.fetchone()
+    set_id = rows_max[0] + 1
+    str_sale_id.set(set_id)
+
+
+def set_max_id_order():
+    sql = 'SELECT MAX(order_id) FROM tb_order'
+    cur.execute(sql)
+    rows_max = cur.fetchone()
+    set_id = rows_max[0] + 1
+    str_order_id.set(set_id)
+
 
 # windows form area
 windows = Tk()
@@ -278,7 +342,7 @@ str_sale_date = StringVar()
 
 lbl_id_tap2 = Label(fm_tap2, text='Sale ID :')
 lbl_id_tap2.grid(row=0, column=0, padx=5, pady=10)
-txt_sale_id = ttk.Entry(fm_tap2, textvariable=str_sale_id, width=10)
+txt_sale_id = ttk.Entry(fm_tap2, textvariable=str_sale_id, width=10, state=DISABLED)
 txt_sale_id.grid(row=0, column=1)
 
 lbl_productid_tap2 = Label(fm_tap2, text='Product ID :')
@@ -288,7 +352,7 @@ txt_product_id.grid(row=0, column=3)
 
 lbl_order_id = Label(fm_tap2, text='Order ID :')
 lbl_order_id.grid(row=0, column=4, padx=5, pady=10)
-txt_order_id = ttk.Entry(fm_tap2, textvariable=str_order_id, width=10)
+txt_order_id = ttk.Entry(fm_tap2, textvariable=str_order_id, width=10, state=DISABLED)
 txt_order_id.grid(row=0, column=5)
 
 lbl_cus_id = Label(fm_tap2, text='Cus ID :')
@@ -334,7 +398,7 @@ img_sale_calcu = PhotoImage(file="image/calcu16.png")
 img_sale_refresh = PhotoImage(file="image/refresh16.png")
 
 btn_insert_sale = ttk.Button(fm_tap2, text='Insert', image=img_sale_insert, compound="left" \
-    ,width=10, command='')
+    ,width=10, command=insert_data_sale)
 btn_insert_sale.grid(row=0, column=8, padx=40)
 #btn_insert['bg'] = '#E2F8BE'
 btn_update_sale = ttk.Button(fm_tap2, text='Update', image=img_sale_update, compound="left" \

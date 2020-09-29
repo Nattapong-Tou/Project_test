@@ -193,10 +193,11 @@ def report_summary(): # funcrion for show dataframe and plot grap summary data.
     df = pandas.DataFrame(query_sql, columns=['Date_Pay', 'Total_Price'])
     #print(df)
     plt.style.use('seaborn') # กำหนด stype
-    df.plot(marker='o',markersize=3, x='Date_Pay', y='Total_Price',color='red')
+    df.plot(marker='o',markersize=4, x='Date_Pay', y='Total_Price',color='red')
     plt.title("Eletric And Water Price Per Mount") # กำหนด title ให้กราฟ
     plt.ylabel('Price') # กำหนด title ให้จำนวนเงินแกน y
     plt.xticks(rotation='90') # กำหนดแนว Label แกน X ของกราฟ
+    plt.subplots_adjust(bottom=0.256) # กำหนดค่า config subplot เช่น ขนาดความสูง กว้าง ของตัวกราฟ
     plt.show()
     # Complese Function ------------
 
