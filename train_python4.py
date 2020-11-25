@@ -166,9 +166,9 @@ txt_price.grid(row=2, column=1)
 
 
 # create style
-style = ttk.Style().configure("BW.TButton", padding=5, relief="flat", background="#000000")
+style = ttk.Style().configure("BW.TButton", padding=5, relief="flat", background="#99FF33")
 
-btn_insert = ttk.Button(fm1, text='Insert', width=15, command=insert_data)
+btn_insert = ttk.Button(fm1, text='Insert', style='BW.TButton', width=15, command=insert_data)
 btn_insert.grid(row=0, column=3, padx=20)
 #btn_insert['bg'] = '#E2F8BE'
 btn_update = ttk.Button(fm1, text='Update', width=15, command=update_data)
@@ -199,7 +199,8 @@ tree.bind('<ButtonRelease>', select_data)
 
 show_data()
 windows.mainloop()
-'''
+
+
 
 # 31 /8 /2020
 # basic grap with pandas
@@ -229,8 +230,23 @@ df.plot(kind='line', x='name', y='money', color='blue', ax=ax)
 plt.show()
 
 
+'''
 
 
+from tkinter import *
+from tkinter import ttk
+from tkinter import messagebox
+from tkmacosx import Button
+
+windows = Tk()
+windows.geometry('600x400+800+100')
+
+B1 = Button(windows, text='Mac OSX', bg='black',fg='green', borderless=1)
+B1.pack()
+B2 = Button(windows, text='Mac OSX', bg='blue',fg='red', borderless=1)
+B2.pack()
+
+windows.mainloop()
 
 
 

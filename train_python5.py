@@ -12,6 +12,8 @@ import sqlite3
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
+from datetime import date
+import sys
 
 
 # connect database
@@ -53,6 +55,7 @@ def clear_data():
     
     # call function
     set_max_id()
+    show_data()
 
 
 def select_data(event):
@@ -160,14 +163,14 @@ def show_data_sale():
         cpt += 1
     
     # call function when start up
-    set_max_id_order()
+    #set_max_id_order()
     set_max_id_sale()
 
 
 def clear_data_sale():
-    str_sale_id.set('')
+    #str_sale_id.set('')
     str_product_id.set('')
-    str_order_id.set('')
+    #str_order_id.set('')
     str_cus_id.set('')
     str_amount_sale.set('')
     str_sale_price.set('')
@@ -175,6 +178,14 @@ def clear_data_sale():
     str_sale_pay_in.set('')
     str_sale_pay_out.set('')
     str_sale_date.set('')
+    str_amount_sale.set('0')
+    str_sale_price.set('0')
+
+    # call function
+    #set_max_id_order()
+    set_max_id_sale()
+    set_date()
+
 
 def select_data_sale(event):
     item_sale = tree_tap2.selection()
@@ -205,7 +216,24 @@ def insert_data_sale():
 
     if sale_id == '':
         messagebox.showwarning(title='Warning', message='ID is missing. !!!')
-    
+    elif priduct_id == '':
+        messagebox.showwarning(title='Warning', message='product id is missing. !!!')
+    elif order_id == '':
+        messagebox.showwarning(title='Warning', message='order id is missing. !!!')
+    elif cus_id == '':
+        messagebox.showwarning(title='Warning', message='customer id is missing. !!!')
+    elif amount_sale == '':
+        messagebox.showwarning(title='Warning', message='amount is missing. !!!')
+    elif sale_price == '':
+        messagebox.showwarning(title='Warning', message='sale price is missing. !!!')
+    elif sale_total_price == '':
+        messagebox.showwarning(title='Warning', message='total price is missing. !!!')
+    elif str_sale_pay_in == '':
+        messagebox.showwarning(title='Warning', message='pay in is missing. !!!')
+    elif sale_pay_out == '':
+        messagebox.showwarning(title='Warning', message='pay out is missing. !!!')
+    elif sale_date == '':
+        messagebox.showwarning(title='Warning', message='sale date is missing. !!!')
     else:
         insert = messagebox.askyesno(title='Comfirm insert data.', message='Are you want to insert data ?')
         if insert > 0:
@@ -215,8 +243,7 @@ def insert_data_sale():
                 sale_pay_in, sale_pay_out, sale_price, cus_id]
             con.execute(sql_insert, data_insert)
             con.commit()
-
-            
+ 
             # insert to tb_order
             sql_insert_order = 'INSERT INTO tb_order VALUES(?,?);'
             data_insert_order = [order_id, sale_date]
@@ -234,7 +261,41 @@ def insert_data_sale():
             clear_data_sale()
 
 
-def set_max_id_sale():
+def delete_data_sale():
+    sale_id = str_sale_id.get()
+    order_id = str_order_id.get()
+
+    if sale_id == '':
+        messagebox.showwarning(title='Warning', message='sale id is missing. !!!')
+    elif order_id == '':
+        messagebox.showwarning(title='Warning', message='order id is missing. !!!')
+    else:
+
+        delete = messagebox.askyesno(title='Comfirm delete data.', message='Are you want to delete data ?')
+        if delete > 0:
+            sql_delete = 'DELETE FROM tb_sale WHERE sale_id=?;'
+            data_delete = [sale_id]
+            con.execute(sql_delete, data_delete)
+            con.commit()
+
+            # delete tb_order
+            sql_delete_order = 'DELETE FROM tb_order WHERE order_id=?;'
+            data_delete_order = [order_id]
+            con.execute(sql_delete_order, data_delete_order)
+            con.commit()
+
+            # update amount in tb_product
+            sql_update_amount = 'UPDATE tb_product SET amount = amount+? WHERE id=?;'
+            data_update_amount = [amount_sale, priduct_id]
+            con.execute(sql_update_amount, data_update_amount)
+            con.commit()
+
+            # call function
+            show_data_sale()
+            clear_data_sale()
+
+
+def set_max_id_sale(): #function ตั้ง sale id แบบ auto
     sql = 'SELECT MAX(sale_id) FROM tb_sale'
     cur.execute(sql)
     rows_max = cur.fetchone()
@@ -242,12 +303,32 @@ def set_max_id_sale():
     str_sale_id.set(set_id)
 
 
-def set_max_id_order():
+def set_max_id_order(): #function ตั้ง order id แบบ auto
     sql = 'SELECT MAX(order_id) FROM tb_order'
     cur.execute(sql)
     rows_max = cur.fetchone()
     set_id = rows_max[0] + 1
     str_order_id.set(set_id)
+
+
+def calculate_sale(): # function คำนวนเงินทอน
+    check_pay_in = str_sale_pay_in.get()
+    if check_pay_in == '':
+        messagebox.showwarning(title='Warning', message='pay in is missing. !!!')
+    else:
+        r = float(str_sale_pay_in.get()) - float(str_sale_total_price.get())
+        str_sale_pay_out.set(r)
+
+
+def auto_calculate(*args): #function คำนวนราคาสินค่าแบบ auto    
+    r = float(str_amount_sale.get()) * float(str_sale_price.get())
+    str_sale_total_price.set(r)
+
+
+def set_date(): # function สร้างวันที่ใน textbox แบบ auto
+    day = date.today()
+    str_sale_date.set(day.strftime('%d/%b/%Y')) # format dd-mm-yyyy
+
 
 
 # windows form area
@@ -340,6 +421,13 @@ str_sale_pay_in = StringVar()
 str_sale_pay_out = StringVar()
 str_sale_date = StringVar()
 
+# calculate แบบ auto ต้องประกาศตัวแปรเพิ่ม
+str_amount_sale.set('0')
+str_sale_price.set('0')
+str_amount_sale.trace_add('write', auto_calculate)
+str_sale_price.trace_add('write', auto_calculate)
+
+
 lbl_id_tap2 = Label(fm_tap2, text='Sale ID :')
 lbl_id_tap2.grid(row=0, column=0, padx=5, pady=10)
 txt_sale_id = ttk.Entry(fm_tap2, textvariable=str_sale_id, width=10, state=DISABLED)
@@ -372,7 +460,7 @@ txt_sale_price.grid(row=1, column=3)
 
 lbl_sale_total_price = Label(fm_tap2, text='Total Price :')
 lbl_sale_total_price.grid(row=1, column=4)
-txt_sale_total_price = ttk.Entry(fm_tap2, textvariable=str_sale_total_price, width=10)
+txt_sale_total_price = ttk.Entry(fm_tap2, textvariable=str_sale_total_price, width=10, state=DISABLED)
 txt_sale_total_price.grid(row=1, column=5)
 
 lbl_pay_in = Label(fm_tap2, text='Pay In :')
@@ -382,12 +470,12 @@ txt_pay_in.grid(row=2, column=1)
 
 lbl_pay_out = Label(fm_tap2, text='Pay Out :')
 lbl_pay_out.grid(row=2, column=2, padx=5, pady=10)
-txt_pay_out = ttk.Entry(fm_tap2, textvariable=str_sale_pay_out, width=10)
+txt_pay_out = ttk.Entry(fm_tap2, textvariable=str_sale_pay_out, width=10, state=DISABLED)
 txt_pay_out.grid(row=2, column=3)
 
 lbl_sale_date = Label(fm_tap2, text='Date :')
 lbl_sale_date.grid(row=3, column=0)
-txt_sale_date = ttk.Entry(fm_tap2, textvariable=str_sale_date, width=10)
+txt_sale_date = ttk.Entry(fm_tap2, textvariable=str_sale_date, width=10, state=DISABLED)
 txt_sale_date.grid(row=3, column=1)
 
 # image for button
@@ -401,21 +489,26 @@ btn_insert_sale = ttk.Button(fm_tap2, text='Insert', image=img_sale_insert, comp
     ,width=10, command=insert_data_sale)
 btn_insert_sale.grid(row=0, column=8, padx=40)
 #btn_insert['bg'] = '#E2F8BE'
+'''
 btn_update_sale = ttk.Button(fm_tap2, text='Update', image=img_sale_update, compound="left" \
     ,width=10, command='')
 btn_update_sale.grid(row=1, column=8)
-
+'''
 btn_delete_sale = ttk.Button(fm_tap2, text='Delete', image=img_sale_delete, compound="left" \
-    ,width=10, command='')
-btn_delete_sale.grid(row=2, column=8)
+    ,width=10, command=delete_data_sale)
+btn_delete_sale.grid(row=1, column=8)
 
 btn_cal_sale = ttk.Button(fm_tap2, text='Calculate', image=img_sale_calcu, compound="left" \
-    ,width=10, command='')
-btn_cal_sale.grid(row=3, column=8)
+    ,width=10, command=calculate_sale)
+btn_cal_sale.grid(row=2, column=8)
 
 btn_clear_sale = ttk.Button(fm_tap2, text='Clear', image=img_sale_refresh, compound="left" \
     ,width=10, command=clear_data_sale)
-btn_clear_sale.grid(row=4, column=8, pady=10)
+btn_clear_sale.grid(row=3, column=8)
+
+btn_success_sale = ttk.Button(fm_tap2, text='Success', image=img_sale_refresh, compound="left" \
+    ,width=10, command=set_max_id_order)
+btn_success_sale.grid(row=4, column=8, pady=5)
 
 tree_tap2 = ttk.Treeview(fm_tap2)
 tree_tap2['show'] = 'headings'
@@ -447,9 +540,12 @@ tree_tap2.bind('<ButtonRelease>', select_data_sale)
 
 # call function tap Product Data
 show_data()
+
 # call function tap Sale Data
 show_data_sale()
-
+auto_calculate()
+set_date()
+set_max_id_order()
 
 windows.mainloop()
 
