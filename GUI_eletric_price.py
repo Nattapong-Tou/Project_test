@@ -1,12 +1,13 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
-from pandas import * # libarlies for create Dataframe
+import pandas # libarlies for create Dataframe
 from datetime import date # libralies datetime for set textbox date
 import numpy
 import matplotlib.pyplot as plt # libralies for plot grap
 import sqlite3 # libralies database
 import sys
+
 
 
 print(sys.version)
