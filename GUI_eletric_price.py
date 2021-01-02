@@ -10,6 +10,7 @@ import sys
 
 
 
+
 print(sys.version)
 # ---------- connect Database SQLite3 -----------
 con = sqlite3.connect('Database/DB_Test.db')
