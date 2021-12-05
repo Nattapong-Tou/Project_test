@@ -1,6 +1,8 @@
 import math
 import random
+import sys
 
+print(sys.version)
 
 print('Example loop แบบ for in..')
 for i in range(1, 6):

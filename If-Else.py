@@ -1,5 +1,5 @@
 import math # import class math เพื่อนำ function class ที่ใช้ในการคำนวนมาใช้งาน
-import requests
+
 
 # ทดสอบการใช้ If - Else ในโปรแกรมคำนวน Lotto
 '''

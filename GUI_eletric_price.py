@@ -10,8 +10,9 @@ import sys
 
 
 
-
+print(sys.executable)
 print(sys.version)
+
 # ---------- connect Database SQLite3 -----------
 con = sqlite3.connect('Database/DB_Test.db')
 cur = con.cursor()
@@ -269,6 +270,7 @@ txt_now_unit = ttk.Entry(textvariable=now_unit, width=10).place(x=103, y=127)
 txt_use_unit = ttk.Entry(textvariable=use_unit, state=DISABLED, width=10).place(x=105, y=157)
 txt_eletric_price = ttk.Entry(textvariable=eletric_price, state=DISABLED, width=10).place(x=115, y=187)
 txt_total_price = ttk.Entry(textvariable=total_price, state=DISABLED, width=10).place(x=115, y=217)
+
 
 # Image for button
 img_save = PhotoImage(file="image/save.png")
