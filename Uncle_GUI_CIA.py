@@ -6,6 +6,7 @@ fg='#e6e6e6' #foreground
 
 #ทดสอบการสร้างหน้า User Interface แบบ CIA
 GUI = Tk()
+GUI.title('CIA GUI')
 GUI.geometry('1440x900+900+50') # ปรับขนาดหน้าจอตามที่เราต้องการ
 GUI.configure(background=bg) # ปรับสีของพื้นหลัง
 #GUI.attributes('-fullscreen', True) # ขยายหน้่าจอให้เต็มจอ
@@ -13,7 +14,7 @@ GUI.configure(background=bg) # ปรับสีของพื้นหลั�
 # กำหนดขนาดหน้า GUI ตาม resolution ของเครื่องต่างๆ
 windows_width = GUI.winfo_screenwidth()
 windows_height = GUI.winfo_screenheight()
-print(windows_width, windows_height)
+#print(windows_width, windows_height)
  
 canvas = Canvas(GUI, width=windows_width, height=windows_height, background=bg)
 canvas.configure(bd=0, relief='ridge', highlightthickness=0) # ทำให้จอไม่มีขอบ
@@ -34,6 +35,8 @@ FrameRect(50,50,700,700) # from top left corner
 FrameRect(50,50,700,20, fill=True) # header bar
 # in right
 FrameRect(400,85,340,300)
+
+photo = PhotoImage(file="image/harry.png")
 
 # --------- Right Zone ----------
 # main
