@@ -7,7 +7,7 @@ import time
 
 # line notify covid - 19 
 # line notify covid - 19  ตัวหน้าเว็บจะมี API ให้ไม่ต้องดึงจากเว็บตรงๆ โดยดึงผ่าน API รูปแบบ json 
-covid_api = 'https://covid19.th-stat.com/api/open/today' # api for covid-19
+covid_api = 'https://covid19.ddc.moph.go.th/api/Cases/today-cases-all' # api for covid-19
 r_covid = requests.get(covid_api)
 r_covid.encoding = 'utf-8'
 
@@ -23,15 +23,12 @@ def line_notify_covid(payload_covid):
 
 def covid_check():
     
-    line_notify_message_covid('จำนวนผู้ติด Covid ประจำวันที่ '
-        + str(r_covid.json()['UpdateDate']) + '\n'
-        + 'ผู้ป่วยสะสม : ' + str(r_covid.json()['Confirmed'])  + '\n'
-        + 'ผู้ป่วยหายแล้ว : ' + str(r_covid.json()['Recovered']) + '\n'
-        + 'ผู้ป่วยที่อยู่ รพ. : ' + str(r_covid.json()['Hospitalized']) + '\n'
-        + 'ผู้ป่วยใหม่ : ' + str(r_covid.json()['NewConfirmed'])+ '\n'
-        + 'เสียชีวิต : ' + str(r_covid.json()['Deaths']))
+    line_notify_message_covid('จำนวนผู้ติด Covid ประจำวันที่')
+       
     
 covid_check()
+
+
 
 
 # check ราคาทองแล้วส่งเข้า line notify
@@ -53,7 +50,7 @@ def line_notify(payload, file=None):
     return requests.post(URL, headers=headers, data=payload, files=file) 
 
 def gold_price_check():
-    line_notify_message('ราคาทองคำ 96.5% ประจำวันที่'
+    line_notify_message('ราคาทองคำ 96.5% ประจำวันที่ : '
         + sub.find(id='DetailPlace_uc_goldprices1_lblAsTime').text + '\n'
         + 'ทองคำแท่ง' + '\n'
         + 'ขายออก : ' + sub.find(id='DetailPlace_uc_goldprices1_lblBLSell').text + '\n'
