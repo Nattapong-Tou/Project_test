@@ -1,16 +1,31 @@
 # test python for web scraping ดึงข้อมูลผู้ติดเชื้อ Covid - 19 ในไทย
+from email import message
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd 
-import time
-
+import time, datetime
+import json
 
 # line notify covid - 19 
 # line notify covid - 19  ตัวหน้าเว็บจะมี API ให้ไม่ต้องดึงจากเว็บตรงๆ โดยดึงผ่าน API รูปแบบ json 
 covid_api = 'https://covid19.ddc.moph.go.th/api/Cases/today-cases-all' # api for covid-19
 r_covid = requests.get(covid_api)
-r_covid.encoding = 'utf-8'
+r_covid_data = json.loads(r_covid.content)
 
+URL = 'https://notify-api.line.me/api/notify'
+Token ='ic23VahorgzkTy3iP2xZxfuZNsXFgYeiv2XGyJ36N6v'
+headers = {'content-type':'application/x-www-form-urlencoded','Authorization':'Bearer '+Token}
+print('ผู้ติด Covid-19 วันที่', r_covid_data[0]['txn_date'])
+
+msg = (
+    "\n"
+    + "สรปุยอดผู้ติดเชื้อ COVID-19 ประจำวันที่ " + str(r_covid_data[0]['txn_date']) + "\n"
+    + "ผู้ติดเชื้อรายใหม่ " + str(r_covid_data[0]['new_case']) + " คน" + "\n"
+)
+send = requests.post(URL, headers=headers, data= {'message':msg})
+
+
+'''
 def line_notify_message_covid(message_covid):
     payload_covid = {'message': message_covid}
     return line_notify_covid(payload_covid)
@@ -23,10 +38,14 @@ def line_notify_covid(payload_covid):
 
 def covid_check():
     
-    line_notify_message_covid('จำนวนผู้ติด Covid ประจำวันที่')
-       
+
+    line_notify_message_covid('จำนวนผู้ติด Covid ประจำวันที่' + str(r_covid.json()['txn_date']))
+    
+    
     
 covid_check()
+'''
+
 
 
 
