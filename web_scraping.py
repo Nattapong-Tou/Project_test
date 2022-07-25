@@ -6,6 +6,8 @@ import pandas as pd
 import time, datetime
 import json
 
+'''
+
 # line notify covid - 19 
 # line notify covid - 19  ตัวหน้าเว็บจะมี API ให้ไม่ต้องดึงจากเว็บตรงๆ โดยดึงผ่าน API รูปแบบ json 
 covid_api = 'https://covid19.ddc.moph.go.th/api/Cases/today-cases-all' # api for covid-19
@@ -41,13 +43,10 @@ def covid_check():
 
     line_notify_message_covid('จำนวนผู้ติด Covid ประจำวันที่' + str(r_covid.json()['txn_date']))
     
-    
+''' 
     
 covid_check()
 '''
-
-
-
 
 
 # check ราคาทองแล้วส่งเข้า line notify
@@ -81,5 +80,20 @@ def gold_price_check():
 gold_price_check()
 
 # concept ถัดไปส่ง covid - 19 เข้า line
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -1,0 +1,16 @@
+openpyxl      
+pandas        
+Pillow        
+prompt-toolkit
+psutil        
+Pygments  
+pyparsing 
+pyzmq     
+requests  
+scipy     
+stack-data
+terminado 
+tornado   
+traitlets 
+urllib3   
+virtualenv
