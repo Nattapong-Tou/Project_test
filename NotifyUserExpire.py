@@ -16,11 +16,22 @@ for i in rows :
         URL = 'https://notify-api.line.me/api/notify'
         Token ='ic23VahorgzkTy3iP2xZxfuZNsXFgYeiv2XGyJ36N6v'
         headers = {'content-type':'application/x-www-form-urlencoded','Authorization':'Bearer '+Token}
-        message = "มี Username ที่ขอใช้งานระบบ Service Monitor SolarWinds ใกล้จะสิ้นสุดอายุการใช้งาน กรุณาตรวจสอบ."
+        message = "แจ้งเตือน Username ที่ขอใช้งานระบบ Service Monitor SolarWinds ใกล้จะสิ้นสุดอายุการใช้งาน กรุณาตรวจสอบ."
         r = requests.post(URL, headers=headers, data={'message' : message})
         break 
     else:
         break
+
+'''
+Powershell script notify when user log on to VM Server
+$url = 'https://notify-api.line.me/api/notify'
+$token = 'Bearer ic23VahorgzkTy3iP2xZxfuZNsXFgYeiv2XGyJ36N6v'
+$header = @{Authorization = $token}
+$body = @{message = 'Alert : Someone have a remote to this VM Server as ' + $env:USERNAME + ' User On ' +$env:COMPUTERNAME+ ' Server'}
+$res = Invoke-RestMethod -Uri $url -Method Post -Headers $header -Body $body
+echo $res 
+
+'''
 
 
 

@@ -23,3 +23,12 @@ certifi
 colorama 
 isort 
 kiwisolver
+certifi
+lazy-object-proxy
+pandas
+plotly
+pyobjc
+reportlab
+setuptools
+virtualenv
+numpy
