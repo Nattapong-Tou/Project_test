@@ -48,7 +48,6 @@ PASSWORD :
 ftp_server = ftplib.FTP(HOSTNAME, USERNAME, PASSWORD)
 
 
-'''
 HOSTNAME = "http://demo.wftpserver.com/" 
 USERNAME = "demo"
 PASSWORD = "demo"
@@ -83,4 +82,6 @@ with open(file_name, "wb") as file:
 ftp_server.dir()
 ftp_server.quit()
 
+
+'''
 
