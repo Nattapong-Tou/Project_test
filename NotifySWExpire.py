@@ -7,7 +7,7 @@ con = sqlite3.connect('/Users/tou/Programming/PythonProject/SolarWinds_Project/d
 con.cursor()
 #print('connected')
 
-sql = "SELECT * FROM myweb_solarwinds_server_detail WHERE julianday(SolarWinds_Software_Expire) - julianday(date()) <= 100.0" # SQL ตรวจสอบ Username ที่กำลังจะสิ้นสุดอายุลงในอีก 30 วัน
+sql = "SELECT * FROM myweb_solarwinds_server_detail WHERE julianday(SolarWinds_Software_Expire) - julianday(date()) <= 45.0" # SQL ตรวจสอบ Username ที่กำลังจะสิ้นสุดอายุลงในอีก 30 วัน
 rows = con.execute(sql)
 
 for i in rows :

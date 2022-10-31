@@ -23,6 +23,8 @@ for i in rows :
         break
 
 '''
+
+
 Powershell script notify when user log on to VM Server
 $url = 'https://notify-api.line.me/api/notify'
 $token = 'Bearer ic23VahorgzkTy3iP2xZxfuZNsXFgYeiv2XGyJ36N6v'
@@ -30,6 +32,8 @@ $header = @{Authorization = $token}
 $body = @{message = 'Alert : Someone have a remote to this VM Server as ' + $env:USERNAME + ' User On ' +$env:COMPUTERNAME+ ' Server'}
 $res = Invoke-RestMethod -Uri $url -Method Post -Headers $header -Body $body
 echo $res 
+
+
 
 '''
 
